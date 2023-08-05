@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-notify_plug=true
+notify_plug=false
 notify_bat_full=false
 brightness_100=false
 
@@ -33,10 +33,10 @@ function battery_checker() {
       		
 	if [ $batt_cap -ge 21 ] ; then notify_plug=false ; fi
 
-      else
+      else ## discharging
       	notify_bat_full=false
       	if [ $batt_cap -le 20 ] ; then
-      		if [ notify_plug = false ] ; then
+      		if [ $notify_plug = false ] ; then
       			dunstify "Please plug the charger." -u critical && paplay ~/Downloads/please_charge.mp3
       			notify_plug=true
       		fi
