@@ -8,7 +8,8 @@ focus_on_window_activation smart
 
 exec dunst
 ### Idle configuration
-exec ~/.config/sway/idle.sh
+set $script_dir ~/.config/sway/scripts
+exec $script_dir/idle.sh
 
 default_border pixel 2
 client.focused "#FF0000" "#FF0000" "#FF0000" "#FF0000"
@@ -35,9 +36,9 @@ set $term alacritty
 set $file_manager alacritty -e ranger
 
 #set script
-set $volume ~/.config/sway/changevolume.sh
-set $brightness ~/.config/sway/changebrightness.sh
-set $printscreen ~/.config/sway/print_screen.sh
+set $volume $script_dir/changevolume.sh
+set $brightness $script_dir/changebrightness.sh
+set $printscreen $script_dir/print_screen.sh
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -271,7 +272,7 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while ~/.config/sway/swayBarStatus.sh; do sleep 1; done 
+    status_command while $script_dir/swayBarStatus.sh; do sleep 1; done 
 
     colors {
         statusline #ffffff
