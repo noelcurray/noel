@@ -1,9 +1,5 @@
 #!/bin/sh
 
-# run $xrandr to get the WIDTHXSCREEN_HEIGHT+0+0
-# run xsetwacom list devices to get the id of stylus
-xrandr --output HDMI-A-0 --auto --below DVI-D-0
-
 GETSTYLUSID=`xsetwacom list devices`
 
 ID_STYLUS=$(echo $GETSTYLUSID | cut -d " " -f 7)
