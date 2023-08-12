@@ -1,4 +1,5 @@
 #! /bin/bash
+
 var1=`xrandr | grep -A1 'HDMI-1' | grep '*'`
 
 if [[ ! -z "$var1" ]];
@@ -18,10 +19,3 @@ else
 	xsetwacom set $ID_STYLUS MapToOutput $SCREEN_TARGET
 	xsetwacom set $ID_ERASER  MapToOutput $SCREEN_TARGET
 fi
-
-#case $1 in
-#	on)
-#		xrandr --output HDMI-1 --auto --below DVI-D-1;;
-#	off)
-#		xrandr --output HDMI-1 --off;;
-#esac
