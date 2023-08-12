@@ -1,0 +1,22 @@
+#see /usr/share/doc/alacritty/example/alacritty.yml 
+window: { opacity: 0.8 }
+
+font:  
+  normal: 
+    family: JetBrainsMonoNerdFont
+    style: Medium
+
+    bold:
+      family: JetBrainsMonoNerdFont
+      style: Bold
+
+    italic:
+      family: JetBrainsMonoNerdFont
+      style: Italic
+     
+    bold_italic: 
+      family: JetBrainsMonoNerdFont
+      style: Bold Italic
+
+size: 12
+
