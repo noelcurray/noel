@@ -1,0 +1,42 @@
+		
+- Desktop environment (Plasma)
+	# sudo pacman -S xorg plasma sddm
+	# systemctl enable sddm
+	# sudo nano /usr/lib/sddm/sddm.conf.d/default.conf
+		[Theme]
+		# current theme name
+		 Current=breeze
+
+- Plasma settings
+	7.1.1 Input Devices > Mouse > Left handed mode
+	7.1.2 Input Devices > Keyboard > Advanced > check Configure keyboard options
+		7.1.2.1 Caps lock behavior > check Swap Esc and Caps lock
+		7.1.2.2 Alt and Win behavior > Menu is mapped to Win
+	7.1.3 Workspace Behavior > Clicking files or folder
+	7.1.4 Window Management > Kwin Scripts > Get New Scripts > Krohnkite
+		7.1.4.1 Enable user-configuration
+	7.1.5 Appearance > Window Decorations > Get New Window Decorations > Active Accent Frame
+	7.1.6 Shortcuts > Kwin > 
+			Krohnkite: Right > Meta + L
+			Close Window > Meta + Q
+			Window to Next Screen  > Meta+Tab
+			Window to Next Desktop > Meta+?
+			Window to Previous Desktop > Meta+>
+			Switch to Next Desktop > Meta+/
+			Switch to Previous Desktop > Meta+.
+	7.1.6 Shortcuts > Konsole > Meta + Return
+	7.1.7 Input Devices > Graphic Tablet >
+	7.1.8 Startup and Shutdown > Desktop Session > uncheck Logout Screen 
+	
+- kde-applications
+	konsole 
+	ark 
+	dolphin 
+	dolphin-plugins 
+	kio-gdrive 
+	spectacle 
+	gwenview
+	krita
+	kcm-wacomtablet
+	kde connect
+	
