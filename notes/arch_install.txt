@@ -1,0 +1,72 @@
+[ESSENTIAL]
+
+1.9 partition the disk
+	# fdisk -l (**NOTE: nagiiba iba yung pangalan. minsan 'sda', minsan 'sdb' kaya dapat icheck)
+	# fdisk /dev/the_disk_to_be_partitioned
+	
+		example layout
+		----------------------------------------------------------------------------------------------------------------
+		| /mnt/boot	| /dev/efi_system_partition	| EFI system partition		| at least 300M			|
+		----------------------------------------------------------------------------------------------------------------
+		| [SWAP]	| /dev/swap_partition		| Linux swap			| 8G				|
+		----------------------------------------------------------------------------------------------------------------
+		| /mnt		| /dev/root_partition		| Linux filesystem (/)		| remainder of the device	|
+		----------------------------------------------------------------------------------------------------------------
+1.10 Format the partition
+	# mkfs.fat -F 32 /dev/efi_system_partition
+	# mkswap /dev/swap_partition
+	# mkfs.ext4 /dev/root_partition
+	# fdisk -l /dev/the_disk_to_be_partitioned (**NOTE: just to check)
+	
+1.11 Mount the partition
+	# mount /dev/root_partition /mnt
+	# mount --mkdir /dev/efi_system_partition /mnt/boot
+	# swapon /dev/swap_partition
+	
+	(**NOTE: this is if you have another drive)
+	# mount --mkdir /dev/another_disk_to_mount /mnt/hdd
+	
+2.0 Install essential package
+	# pacstrap /mnt base linux linux-firmware
+
+3.0 Configure the system
+
+3.1 Generate fstab
+	# genfstab -U /mnt >> /mnt/etc/fstab
+	# cat /mnt/etc/fstab (**NOTE: execute this to check)
+
+3.2 Chroot
+	# arch-chroot /mnt 
+	
+3.3 Set timezone
+	# ln -sf /usr/share/zoneinfo/Asia/Manila /etc/localtime
+	# hwclock --systohc (**NOTE: add '--utc' but its optional)
+	# date (**NOTE: just to check) 
+
+3.4 localization
+	# pacman -S vim
+	# vim /etc/locale.gen (**NOTE: uncomment 'en_US.UTF-8')
+	# locale-gen
+	# echo "LANG=en_US.UTF-8" > /etc/locale.conf
+	# echo "LC_TIME=C.UTF=8" > /etc/locale.conf (**NOTE: 24 hour time format on sddm)
+	
+3.5 Network configuration
+	# echo <PCName> > /etc/hostname (**NOTE: <PCName> can be anything you want)
+	
+3.7 Set root password
+	# passwd
+	
+3.8 Install bootloader
+	# pacman -S grub efibootmgr 
+	# grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot --recheck --removable 		
+	# grub-mkconfig -o /boot/grub/grub.cfg
+
+4.0 Install network manager
+	# pacman -S networkmanager
+	# systemctl enable NetworkManager
+	
+5.0 Reboot
+	# exit
+	# umount -R /mnt
+	# reboot
+
