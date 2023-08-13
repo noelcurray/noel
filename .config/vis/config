@@ -1,0 +1,8 @@
+colors.scheme=arch-blue
+colors.override.terminal=false
+visualizer.fps=30
+visualizer.spectrum.bar.spacing=1
+visualizer.spectrum.smoothing.mode=sgs
+visualizer.sgs.smoothing.points=3
+visualizer.sgs.smoothing.passes=2
+visualizer.spectrum.bar.width=1
