@@ -1,99 +1,70 @@
--------------------------------------------------------
-6.0 Post Installation
+### Post Installation
 
--- expand SSD life
-	# sudo systemctl enable fstrim.timer
+### expand SSD life
+systemctl enable fstrim.timer
 	
-6.02 edit hosts
-	# vim /etc/hosts
-		---------------------------------------- 
-		|	127.0.0.1	localhost	|
-		|	::1		localhost	|
-		|	127.0.1.1	Arch-linux	|
-		----------------------------------------
-	
-6.03 Add user
-	# pacman -S sudo
-	# useradd -m <username>
-	# passwd <username>
-	# usermod -aG wheel,audio,video,optical,storage <username>
-	# EDITOR=vim visudo
+### edit hosts
+echo "127.0.0.1 localhost" >> /etc/hosts
+echo "::1 localhost" >> /etc/hosts
+echo "127.0.1.1 <yourpcname>" >> /etc/hosts
+
+### add user
+pacman -S sudo
+useradd -m <username>
+passwd <username>
+usermod -aG wheel,audio,video,optical,storage <username>
+EDITOR=vim visudo
 		**NOTE: uncomment '%wheel ALL=(ALL) ALL'
 
-6.01 NTFS for usb storage
-	# pacman -S ntfs-3g
+### NTFS for usb storage
+pacman -S ntfs-3g
 		
-6.05 Audio interface (pipewire)
-	# sudo pacman -S pipewire pipewire-pulse pipewire-alsa pipewire-jack wireplumber pavucontrol qpwgrah lsp-plugins calf gst-plugin-pipewire
-
-6.06 Firewall
-	# sudo pacman -S ufw
-	# sudo systemctl enable ufw --now
-	# sudo ufw enable
+### Audio (pipewire)
+pipewire 
+pipewire-pulse 
+pipewire-alsa 
+pipewire-jack 
+wireplumber 
+pavucontrol 
+	
+### Firewall
+pacman -S ufw
+systemctl enable ufw --now
+ufw enable
 			
-6.07 openssh
-	# sudo pacman -S openssh
-	# sudo systemctl enable sshd
+### openssh
+pacman -S openssh
+systemctl enable sshd
 
-6.08 paru (aur helper)	
-	# sudo pacman -S --needed base-devel git
-	# git clone https://aur.archlinux.org/paru.git
-	# cd paru
-	# makepkg -si
-		
-6.12 firefox
-	sync
-	turn on titlebar for Active Accent Frame effect
+### chinese character
+pacman -S ttf-roboto 
+pacman -S adobe-source-han-sans-cn-fonts
 
+### Soft link folders
+ln -s /storage1/noel/Documents ~/Documents
+ln -s /storage1/noel/Downloads ~/Downloads
+ln -s /storage1/noel/Music ~/Music
+ln -s /storage1/noel/Pictures ~/Pictures
+ln -s /storage1/noel/Videos ~/Videos
 	
-8.1 Librewolf
-	# paru -S librewolf-bin
-	extensions > bitwarden
-	extensions > vimium
-	extensions > unhook
-	
-9.1 Soft link folders
-	# ln -s /storage1/noel/Documents ~/Documents
-	# ln -s /storage1/noel/Downloads ~/Downloads
-	# ln -s /storage1/noel/Music ~/Music
-	# ln -s /storage1/noel/Pictures ~/Pictures
-	# ln -s /storage1/noel/Videos ~/Videos
-	
-10.0 Steam
-	# vim /etc/pacman.conf
-		#uncomment multilib
-	# sudo pacman -S steam
-	# paru -S ttf-ms-fonts
-10.1 game mode
-	# sudo pacman -S gamemode lib32-gamemode
+### Steam
+echo "[multilib]" >> /etc/pacman.conf
+echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
 
-11.0 DXVK
-	DXVK_HUD=compiler DXVK_ASYNC=1 gamemoderun mangohud %command%
+pacman -S steam
+git clone https://aur.archlinux.org/ttf-ms-fonts.git
+pacman -S gamemode lib32-gamemode (***add to run: gamemoderun mangohud %command%)
 
+### OBS-studio
+pacman -S obs-studio
+pacman -S libva-mesa-driver
+git clone https://aur.archlinux.org/obs-vkcapture.git
 
-13.0 Opentoonz
+### droidcam
+git clone https://aur.archlinux.org/droidcam.git
+pacman -S android-tools
 
-14.0 Blender
+pacman -S opentoonz
+pacman -S blender
 
-15.0 font configuration/Chinese character
-
-17.0 OBS-studio
-	# sudo pacman -S libva-mesa-driver
-	# paru -S obs-vkcapture-git
-
-18.0 mpv
-	# cp -r /usr/share/doc/mpv ~/.config/
-
-19. Command line tools
-	# radeontop
-	# webtorrent-cli
-	# zsh
-	# yt-dlp
-	# paru -S tty-clock
-	# bashtop
-
---  WINE setup
-
--- droidcam
-	# paru -S --needed droidcam
-	# sudo pacman -S android-tools
+### WINE setup

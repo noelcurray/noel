@@ -32,3 +32,6 @@ Downloads
 Pictures
 settings.ini
 .config/alacritty/themes/
+.config/QtProject.conf
+.npm/
+.vim/
