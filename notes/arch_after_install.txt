@@ -68,3 +68,7 @@ pacman -S opentoonz
 pacman -S blender
 
 ### WINE setup
+
+### dependencies
+libnotify
+bc

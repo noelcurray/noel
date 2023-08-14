@@ -1,1 +1,5 @@
-#This is just my system config using sway. Feel free to check it out.
+to use my config:
+~/git init
+~/git branch -M main 
+~/git remote add origin https://github.com/noelcurray/noel.git
+~/git fetch

@@ -1,10 +1,13 @@
 ### terminal user interface 
 radeontop
 webtorrent-cli
-zsh
 yt-dlp
 bashtop
 xdotool
 ranger (drag and drop)
 mpd
 pulsemixer
+dunst
+playerctl
+feh
+scrot (screenshot)
