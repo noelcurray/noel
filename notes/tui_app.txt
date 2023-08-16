@@ -3,11 +3,31 @@ radeontop
 webtorrent-cli
 yt-dlp
 bashtop
-xdotool
-ranger (drag and drop)
+ranger 
 mpd
+ncmpcpp
 pulsemixer
 dunst
 playerctl
 feh
 scrot (screenshot)
+tty-clock
+cli-visualizer
+alacritty
+xdotool
+
+### fonts
+adobe-source-code-pro-fonts
+ttf-font-awesome
+
+### for swaywm
+swaybg
+swaylock
+swayidle
+imv
+grim
+
+### dependencies
+mpd-mpris
+mpv-mpris
+ranger drag and drop

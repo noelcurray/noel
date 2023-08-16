@@ -35,3 +35,4 @@ settings.ini
 .config/QtProject.conf
 .npm/
 .vim/
+.config/ncmpcpp/error.log
