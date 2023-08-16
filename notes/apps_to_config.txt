@@ -1,5 +1,3 @@
-### Post Installation
-
 ### expand SSD life
 systemctl enable fstrim.timer
 	
@@ -37,7 +35,6 @@ pacman -S openssh
 systemctl enable sshd
 
 ### chinese character
-pacman -S ttf-roboto 
 pacman -S adobe-source-han-sans-cn-fonts
 
 ### Soft link folders
