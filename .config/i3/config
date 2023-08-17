@@ -154,7 +154,7 @@ exec picom
 
 bindsym $mod+d exec --no-startup-id dmenu_run -fn 'JetBrainsMonoNerdFont'
 
-bindsym $mod+p exec --no-startup-id ~/.local/bin/mpv_x_play.sh
+bindsym $mod+p exec --no-startup-id $binpath/mpv_x_play.sh
 
 exec dunst
 
@@ -194,7 +194,6 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 
-set $volume ~/.local/bin/changevolume.sh
 
 exec feh --xinerama-index $display1 --bg-scale ~/Pictures/Wallpaper/arch-linux3.png
 
@@ -212,3 +211,6 @@ bindsym $mod+BackSpace exec playerctl -a play-pause
 
 bindsym $mod+Shift+Tab move scratchpad
 bindsym $mod+Tab scratchpad show
+
+set $binpath ~/.local/bin
+set $volume ~/.local/bin/changevolume.sh
