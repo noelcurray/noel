@@ -31,3 +31,5 @@ grim
 mpd-mpris
 mpv-mpris
 ranger drag and drop
+libnotify
+bc

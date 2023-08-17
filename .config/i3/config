@@ -154,7 +154,7 @@ exec picom
 
 bindsym $mod+d exec --no-startup-id dmenu_run -fn 'JetBrainsMonoNerdFont'
 
-bindsym $mod+p exec --no-startup-id mpv $(xclip -sel clip -o) & dunstify "mpv loading.."
+bindsym $mod+p exec --no-startup-id ~/bin/mpv_x_play.sh
 
 exec dunst
 

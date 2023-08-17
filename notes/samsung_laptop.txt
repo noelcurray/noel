@@ -1,0 +1,4 @@
+pacman -S vulkan-intel
+pacman -S intel-media-driver
+pacman -S libva-intel-driver
+pacman -S libva-utils

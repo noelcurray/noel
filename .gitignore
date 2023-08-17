@@ -36,3 +36,5 @@ settings.ini
 .npm/
 .vim/
 .config/ncmpcpp/error.log
+.config/bashtop/
+.config/dconf/
