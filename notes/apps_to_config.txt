@@ -34,8 +34,13 @@ ufw enable
 pacman -S openssh
 systemctl enable sshd
 
-### chinese character
-pacman -S adobe-source-han-sans-cn-fonts
+### fonts
+adobe-source-han-sans-cn-fonts
+adobe-source-hans-sans-classic-fonts
+adobe-source-code-pro-fonts
+ttf-font-awesome
+ttf-jetbrains-mono
+ttf-jetbrains-mono-nerd
 
 ### Soft link folders
 ln -s /storage1/noel/Documents ~/Documents
@@ -67,5 +72,35 @@ pacman -S blender
 ### WINE setup
 
 ### dependencies
+mpd-mpris
+mpv-mpris
+ranger drag and drop
 libnotify
 bc
+
+
+### terminal user interface 
+radeontop
+webtorrent-cli
+yt-dlp
+bashtop
+ranger 
+mpd
+ncmpcpp
+pulsemixer
+dunst
+playerctl
+feh
+scrot (screenshot)
+tty-clock
+cli-visualizer
+alacritty
+xdotool
+
+### for swaywm
+swaybg
+swaylock
+swayidle
+imv
+grim
+

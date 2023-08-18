@@ -1,32 +1,19 @@
 set $mod Mod4
 
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-# Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume	exec --no-startup-id $volume up		&& $refresh_i3status
 bindsym XF86AudioLowerVolume	exec --no-startup-id $volume down	&& $refresh_i3status
 bindsym XF86AudioMute		exec --no-startup-id $volume mute	&& $refresh_i3status
 
-# Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# move tiling windows via drag & drop by left-clicking into the title bar,
-# or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
+#tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+Return exec --no-startup-id alacritty
@@ -72,8 +59,6 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+Shift+a focus child
 
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
 set $ws01 "1"
 set $ws02 "2"
 set $ws03 "3"
@@ -124,14 +109,8 @@ mode "resize" {
         bindsym j 	resize grow	height	5 px or 5 ppt
         bindsym k 	resize shrink	height	5 px or 5 ppt
         bindsym l 	resize grow	width	5 px or 5 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left	resize shrink	width	5 px or 5 ppt
-        bindsym Down	resize grow	height	5 px or 5 ppt
-        bindsym Up	resize shrink	height	5 px or 5 ppt
-        bindsym Right	resize grow	width	5 px or 5 ppt
-
-        # back to normal: Enter or Escape or $mod+r
+        
+	# back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
@@ -153,8 +132,6 @@ font pango:JetBrainsMonoNerdFont Medium 12
 exec picom
 
 bindsym $mod+d exec --no-startup-id dmenu_run -fn 'JetBrainsMonoNerdFont'
-
-bindsym $mod+p exec --no-startup-id $binpath/mpv_x_play.sh
 
 exec dunst
 
@@ -205,12 +182,14 @@ smart_gaps on
 
 exec xrandr --output $display1 --primary --below $display2
 
-bindsym $mod+minus exec playerctl -a volume 0.05-
-bindsym $mod+equal exec playerctl -a volume 0.05+
-bindsym $mod+BackSpace exec playerctl -a play-pause
+bindsym $mod+minus	exec playerctl -a volume 0.05-
+bindsym $mod+equal	exec playerctl -a volume 0.05+
+bindsym $mod+BackSpace	exec playerctl -a play-pause
 
-bindsym $mod+Shift+Tab move scratchpad
-bindsym $mod+Tab scratchpad show
+bindsym $mod+Shift+Tab	move scratchpad
+bindsym $mod+Tab	scratchpad show
 
-set $binpath ~/.local/bin
-set $volume ~/.local/bin/changevolume.sh
+set $binpath	~/.local/bin
+set $volume	~/.local/bin/changevolume.sh
+
+bindsym $mod+p exec --no-startup-id $binpath/mpv_play.sh
