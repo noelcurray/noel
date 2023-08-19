@@ -11,7 +11,7 @@ function pen_map() {
 }
 
 case $1 in
-	--swap-display)
+	-swap)
 		if [[ -z "$var1" ]]; then
 			message="HDMI on, DVI off"
 			xrandr --output DVI-D-1	--off
@@ -24,30 +24,36 @@ case $1 in
 			pen_map DVI-D-1
 		fi
 		;;
-
-	--switch-power)
+	-on)
 		var1=$(xrandr | grep -A1  HDMI-1| grep "*")
 		if [[ -z "$var1" ]]; then
+			xrandr --output DVI-D-1 --primary
 			xrandr --output HDMI-1	--auto --below DVI-D-1
 			pen_map HDMI-1
 			message="HDMI on"
 		else
+			message="HDMI already on"
+		fi
+		;;
+	-off)
+		var1=$(xrandr | grep -A1  HDMI-1| grep "*")
+		if [[ ! -z "$var1" ]]; then
 			var1=$(xrandr | grep -A1  DVI-D-1| grep "*")
 			if [[ ! -z "$var1" ]]; then
-				message="HDMI off"
+				message="HDMI-1 off"
 				xrandr --output HDMI-1 --off
 				pen_map DVI-D-1
 			else
-				message="DVI on"
-				xrandr --output DVI-D-1 --auto
-				xrandr --output HDMI-1	--off
-				pen_map DVI-D-1
-			fi
+				message="HDMI can't turn off. DVI-D-1 is not turn on"
+			fi			
+		else
+			message="HDMI already off"
 		fi
 		;;
 
+
 	*)
-		message="please add --swap-display or --switch-power"
+		message="please add -swap, -on, -off"
 		;;
 esac
 

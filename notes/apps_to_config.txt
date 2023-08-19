@@ -73,6 +73,7 @@ pacman -S blender
 
 ### dependencies
 mpd-mpris
+mpd-notification
 mpv-mpris
 ranger drag and drop
 libnotify
