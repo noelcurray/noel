@@ -38,3 +38,16 @@ settings.ini
 .config/ncmpcpp/error.log
 .config/bashtop/
 .config/dconf/
+steam/
+.steampath
+.steampid
+.config/cef_user_data/
+.local/share/Steam/
+.local/share/vulkan/
+.local/pipx/
+.config/qt6ct/
+.steam/
+.config/obs-studio
+.local/share/ranger
+.config/pipewire/
+.config/vis/vis.log

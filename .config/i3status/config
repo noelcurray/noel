@@ -25,29 +25,30 @@ wireless _first_ {
         format_down = "W: down"
 }
 
+battery all {
+        format = "%status %percentage %remaining"
+}
+
 ethernet _first_ {
         format_up = "E: %ip (%speed)"
         format_down = "E: down"
 }
 
-battery all {
-        format = "%status %percentage %remaining"
-}
 
 disk "/" {
-        format = "%avail"
+        format = " %avail"
 }
 
 load {
-        format = "%1min"
+        format = " %1min"
 }
 
 memory {
-        format = "%used | %available"
+        format = " %used/%available"
         threshold_degraded = "1G"
         format_degraded = "MEMORY < %available"
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+        format = "󰃰 %Y-%m-%d %H:%M:%S"
 }

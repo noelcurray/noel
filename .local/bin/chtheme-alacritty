@@ -30,7 +30,7 @@ done
 SEARCH_REGEX=$(echo ${files[$current_theme_position]})
 
 case $1 in
-	next)
+	-n)
 		replacement_theme_position=$(($current_theme_position+1))
 		if [ $replacement_theme_position -ge $theme_count ] ; then
 			replacement_theme_position=0
@@ -40,7 +40,7 @@ case $1 in
 		sed -i 's|'"$SEARCH_REGEX"'|'"$REPLACEMENT"'|g' .config/alacritty/alacritty.yml
 		dunstify -r 0005 "Alacritty theme:" "[$replacement_theme_position]$(echo $REPLACEMENT|cut -d "/" -f 5)"
 		;;
-	previous)
+	-p)
 		replacement_theme_position=$(($current_theme_position-1))
 		if [ $replacement_theme_position -le 0 ] ; then
 			replacement_theme_position=$(echo $theme_count)
@@ -51,6 +51,7 @@ case $1 in
 		dunstify -r 0005 "Alacritty theme:" "[$replacement_theme_position]$(echo $REPLACEMENT|cut -d "/" -f 5)"
 		;;
 	*)
-		dunstify -r 0005 "add Next or Previous"
+		echo "error: missing arguments"
+		dunstify -r 0005 "error: missing arguments"
 esac	
 

@@ -22,8 +22,8 @@ pipewire
 pipewire-pulse 
 pipewire-alsa 
 pipewire-jack 
-wireplumber 
-pavucontrol 
+wireplumber
+pulsemixer
 	
 ### Firewall
 pacman -S ufw
@@ -54,13 +54,17 @@ echo "[multilib]" >> /etc/pacman.conf
 echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
 
 pacman -S steam
-git clone https://aur.archlinux.org/ttf-ms-fonts.git
-pacman -S gamemode lib32-gamemode (***add to run: gamemoderun mangohud %command%)
+vulkan-radeon
+lib32-vulkan-radeon
+git clone https://aur.archlinux.org/goverlay-bin.git
+pacman -S gamemode lib32-gamemode (***add to launch option: gamemoderun mangohud %command%)
 
 ### OBS-studio
 pacman -S obs-studio
 pacman -S libva-mesa-driver
 git clone https://aur.archlinux.org/obs-vkcapture.git
+git clone https://aur.archlinux.org/obs-linuxbrowser-bin.git
+git clone https://aur.archlinux.org/obs-multi-rtmp.git
 
 ### droidcam
 git clone https://aur.archlinux.org/droidcam.git
@@ -79,7 +83,6 @@ ranger drag and drop
 libnotify
 bc
 
-
 ### terminal user interface 
 radeontop
 webtorrent-cli
@@ -97,6 +100,9 @@ tty-clock
 cli-visualizer
 alacritty
 xdotool
+python-pip
+python-pipx
+pytchat
 
 ### for swaywm
 swaybg

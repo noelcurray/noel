@@ -1,3 +1,4 @@
+
 #!/bin/sh
 
 pactl unload-module module-echo-cancel
