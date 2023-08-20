@@ -135,8 +135,6 @@ bindsym $mod+d exec --no-startup-id dmenu_run -fn 'JetBrainsMonoNerdFont'
 
 exec dunst
 
-exec setxkbmap -option caps:swapescape
-
 default_border pixel 5
 default_floating_border pixel 1
 
@@ -171,8 +169,6 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 
-exec feh --xinerama-index 0 --bg-scale ~/Pictures/Wallpaper/arch-linux3.png
-
 hide_edge_borders smart
 
 gaps inner 5
@@ -191,4 +187,6 @@ set $volume	~/.local/bin/changevolume.sh
 
 bindsym $mod+p exec --no-startup-id $binpath/mpv_play.sh
 
-exec xrandr --output DVI-D-1 --primary
+exec xrandr --output DVI-D-1 --primary --above HDMI-1 
+exec feh --xinerama-index 0 --bg-scale ~/Pictures/Wallpaper/arch-linux3.png
+exec setxkbmap -option caps:swapescape

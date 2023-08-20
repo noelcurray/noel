@@ -5,6 +5,6 @@ else
 	clipboardType=$(xclip -sel clip -o)
 fi
 
-mpv $clipboardType & dunstify "MPV" "playing: $clipboardType" -h string:bgcolor:"#4B1F52"
+mpv $clipboardType & dunstify "MPV" "playing: $clipboardType" -h string:bgcolor:"#4B1F52" -i "/hdd/noel/icons/mpv-logo-32.png"
 
 

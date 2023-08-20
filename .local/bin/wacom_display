@@ -41,6 +41,7 @@ case $1 in
 			var1=$(xrandr | grep -A1  DVI-D-1| grep "*")
 			if [[ ! -z "$var1" ]]; then
 				message="HDMI-1 off"
+				xrandr --output DVI-D-1 --primary
 				xrandr --output HDMI-1 --off
 				pen_map DVI-D-1
 			else
