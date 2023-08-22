@@ -51,3 +51,4 @@ steam/
 .local/share/ranger
 .config/pipewire/
 .config/vis/vis.log
+.config/MusicBrainz/

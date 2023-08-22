@@ -129,11 +129,11 @@ bar {
 
 font pango:JetBrainsMonoNerdFont Medium 12
 
-exec picom
+exec --no-startup-id picom
 
 bindsym $mod+d exec --no-startup-id dmenu_run -fn 'JetBrainsMonoNerdFont'
 
-exec dunst
+exec --no-startup-id dunst
 
 default_border pixel 5
 default_floating_border pixel 1
@@ -165,9 +165,9 @@ for_window [title="Picture-in-Picture"] sticky enable
 #for_window [class="mpv"] move container to workspace $ws02, workspace $ws02, focus
 
 #[Media Control]
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause 
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioNext exec --no-startup-id playerctl next
 
 hide_edge_borders smart
 
@@ -175,9 +175,9 @@ gaps inner 5
 gaps outer 5
 smart_gaps on
 
-bindsym $mod+minus	exec playerctl -a volume 0.05-
-bindsym $mod+equal	exec playerctl -a volume 0.05+
-bindsym $mod+BackSpace	exec playerctl -a play-pause
+bindsym $mod+minus	exec --no-startup-id playerctl -a volume 0.05-
+bindsym $mod+equal	exec --no-startup-id playerctl -a volume 0.05+
+bindsym $mod+BackSpace	exec --no-startup-id playerctl -a play-pause
 
 bindsym $mod+Shift+Tab	move scratchpad
 bindsym $mod+Tab	scratchpad show
@@ -187,6 +187,7 @@ set $volume	~/.local/bin/changevolume.sh
 
 bindsym $mod+p exec --no-startup-id $binpath/mpv_play.sh
 
-exec xrandr --output DVI-D-1 --primary --above HDMI-1 
-exec feh --xinerama-index 0 --bg-scale ~/Pictures/Wallpaper/arch-linux3.png
-exec setxkbmap -option caps:swapescape
+exec --no-startup-id xrandr --output DVI-D-1 --primary --above HDMI-1 
+exec --no-startup-id feh --xinerama-index 0 --bg-scale ~/Pictures/Wallpaper/arch-linux3.png
+exec --no-startup-id setxkbmap -option caps:swapescape
+
