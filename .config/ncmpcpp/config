@@ -3,3 +3,20 @@ mpd_host = "localhost"
 mpd_port = "6600"
 mpd_connection_timeout = "5"
 mpd_music_dir= "/hdd/noel/Music"
+
+audio_output {
+	type	"fifo"
+	name	"Visualizer_feed"
+	path	"/tmp/mpd.fifo"
+	format	"4410:16:2"
+}
+
+visualizer_output_name = "Visualizer_feed"
+
+visualizer_in_stereo = yes
+
+visualizer_type = "spectrum"
+
+visualizer_look = "+|"
+
+

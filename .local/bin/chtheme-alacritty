@@ -32,7 +32,7 @@ SEARCH_REGEX=$(echo ${files[$current_theme_position]})
 case $1 in
 	-n)
 		replacement_theme_position=$(($current_theme_position+1))
-		if [ $replacement_theme_position -ge $theme_count ] ; then
+		if [ $replacement_theme_position -gt $theme_count ] ; then
 			replacement_theme_position=0
 		fi
 		
