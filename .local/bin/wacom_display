@@ -11,6 +11,11 @@ function pen_map() {
 }
 
 case $1 in
+	-map)
+		message="Pen is now mapped in HDMI-1"
+		pen_map HDMI-1
+		;;
+
 	-swap)
 		if [[ -z "$var1" ]]; then
 			message="HDMI on, DVI off"

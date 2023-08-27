@@ -125,6 +125,7 @@ bar {
 	position top
 	#output $display2
 	#tray_output $display2
+	tray_padding 5
 }
 
 font pango:JetBrainsMonoNerdFont Medium 12
@@ -135,7 +136,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run -fn 'JetBrainsMonoNerdFont'
 
 exec --no-startup-id dunst
 
-default_border pixel 5
+default_border pixel 3
 default_floating_border pixel 1
 
 for_window [class="Pavucontrol"] floating enable, resize set 1000 600, move scratchpad, border pixel 0, scratchpad show
@@ -188,6 +189,14 @@ set $volume	~/.local/bin/changevolume.sh
 bindsym $mod+p exec --no-startup-id $binpath/mpv_play.sh
 
 exec --no-startup-id xrandr --output DVI-D-1 --primary --above HDMI-1 
-exec --no-startup-id feh --xinerama-index 0 --bg-scale ~/Pictures/Wallpaper/arch-linux3.png
+exec --no-startup-id feh --xinerama-index 0 --bg-scale ~/Pictures/Wallpaper/Summer\ magic\ 4K\ wallpaper.png
 exec --no-startup-id setxkbmap -option caps:swapescape
 
+# class			border		backgr.		text		indicator	child_border
+client.focused		#4c7899		#285577		#ffffff		#2e9ef4		#96327D
+client.focused_inactive #333333		#5f676a		#ffffff		#484e50		#5f676a
+client.unfocused        #333333		#222222		#888888		#292d2e		#222222
+client.urgent           #2f343a		#900000		#ffffff		#900000		#900000
+client.placeholder      #000000		#0c0c0c		#ffffff		#000000		#0c0c0c
+
+client.background       #ffffff
