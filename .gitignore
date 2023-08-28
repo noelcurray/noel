@@ -52,3 +52,6 @@ steam/
 .config/pipewire/
 .config/vis/vis.log
 .config/MusicBrainz/
+.pki/
+.pulse-cookie
+.config/PureRef.ini
