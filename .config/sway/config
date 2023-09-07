@@ -3,7 +3,7 @@ focus_on_window_activation smart
 
 exec dunst
 ### Idle configuration
-set $script_dir ~/bin
+set $script_dir ~/.local/bin
 exec $script_dir/sway_idle.sh
 
 default_border pixel 2
@@ -23,11 +23,11 @@ set $term alacritty
 set $file_manager alacritty -e ranger
 
 #set script
-set $volume $script_dir/changevolume.sh
-set $brightness $script_dir/changebrightness.sh
+set $volume $script_dir/chvolume
+set $brightness $script_dir/chbrightness
 set $printscreen $script_dir/sway_print_screen.sh
 
-set $menu dmenu_path | dmenu -fn 'SourceCodePro' -nb '#5c5c5c' | xargs swaymsg exec --
+set $menu  bemenu-run --fn JetBrainsMono 13
 
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1366x768.png fill
 
@@ -71,7 +71,7 @@ bindsym XF86MonBrightnessDown exec $brightness -5
 bindsym Print exec $printscreen 
 
 #[youtube to mpv]
-bindsym $mod+Shift+p exec dunstify -u low "mpv loading. Please wait..." &&  mpv $(wl-paste)
+bindsym $mod+p exec $script_dir/mpv_play.sh 
     # Start a terminal
     bindsym $mod+Return exec $term
 
@@ -83,7 +83,7 @@ bindsym F2 exec $file_manager
 bindsym $mod+F1 'swaymsg "output * power off"'
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+q kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
@@ -232,7 +232,7 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-	status_command $script_dir/status_bar.sh
+	status_command $script_dir/sway_status_bar.sh
 
     colors {
         statusline #ffffff
@@ -242,3 +242,8 @@ bar {
 }
 
 include /etc/sway/config.d/*
+
+gaps inner 5
+gaps outer 5
+smart_gaps on
+hide_edge_borders smart
