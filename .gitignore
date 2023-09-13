@@ -55,3 +55,5 @@ steam/
 .pki/
 .pulse-cookie
 .config/PureRef.ini
+.config/user-dirs.dirs
+.config/user-dirs.locale
