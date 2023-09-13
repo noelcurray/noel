@@ -2,6 +2,7 @@ workspace_auto_back_and_forth yes
 focus_on_window_activation smart
 
 exec dunst
+exec nm-applet
 ### Idle configuration
 set $script_dir ~/.local/bin
 exec $script_dir/sway_idle.sh
@@ -228,17 +229,15 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
+	position top
 	status_command $script_dir/sway_status_bar.sh
-
-    colors {
-        statusline #ffffff
-        background #32323290
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+	tray_padding 5
+	colors {
+		statusline #ffffff
+		background #32323290
+		inactive_workspace #32323200 #32323200 #5c5c5c
+	}
+	tray_bindsym button1 ContextMenu
 }
 
 include /etc/sway/config.d/*

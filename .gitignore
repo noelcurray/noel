@@ -55,3 +55,4 @@ steam/
 .pki/
 .pulse-cookie
 .config/PureRef.ini
+.cert/

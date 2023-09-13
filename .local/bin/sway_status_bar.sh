@@ -59,7 +59,7 @@ function battery_checker() {
 	      batt_icon_charging $batt_cap
       	if [ $batt_cap -ge 100 ] ; then
       		if [ $notify_bat_full = false ] ; then
-      			dunstify -i "󰂃" -u critical -h string:bgcolor:"#007500" -h string:frcolor:"#007500" "Battery Full." && paplay --volume=98304 ~/Downloads/battery_full.mp3
+      			dunstify -i "󰂃" -u critical -h string:bgcolor:"#007500" -h string:frcolor:"#007500" "Battery Full." && paplay --volume=98304 ~/.local/share/sounds/battery_full.mp3
       			notify_bat_full=true
       		fi 
       	else
@@ -73,7 +73,7 @@ function battery_checker() {
       	notify_bat_full=false
       	if [ $batt_cap -le 20 ] ; then
       		if [ $notify_plug = false ] ; then
-      			dunstify "Please plug the charger." -u critical && paplay --volume=98304 ~/Downloads/please_charge.mp3
+      			dunstify "Please plug the charger." -u critical && paplay --volume=98304 ~/.local/share/sounds/please_charge.mp3
       			notify_plug=true
       		fi
       	fi
