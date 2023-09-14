@@ -8,4 +8,10 @@ left_hand_id=`xinput list-props ${id}| grep -i "Left Handed Enabled ("| cut -d "
 
 xinput --set-prop $id $left_hand_id 1
 
-dunstify "$mousename is now in left hand mode" 
+dunstify "$mousename" "Left Hand Enabled"
+
+natural_scrolling_id=`xinput list-props ${id} | grep -i "Natural Scrolling Enabled (" | cut -d'(' -f2 | cut -d')' -f1`
+
+xinput --set-prop $id ${natural_scrolling_id} 1
+
+dunstify "$mousename" "Natural Scrolling Enabled" 
