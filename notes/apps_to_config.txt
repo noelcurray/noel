@@ -63,6 +63,7 @@ pacman -S gamemode lib32-gamemode (***add to launch option: gamemoderun mangohud
 pacman -S obs-studio
 pacman -S libva-mesa-driver
 git clone https://aur.archlinux.org/obs-vkcapture.git
+git clone https://aur.archlinux.org/gconf.git
 git clone https://aur.archlinux.org/obs-linuxbrowser-bin.git
 git clone https://aur.archlinux.org/obs-multi-rtmp.git
 
