@@ -27,7 +27,7 @@
 	# mount --mkdir /dev/another_disk_to_mount /mnt/hdd
 	
 2.0 Install essential package
-	# pacstrap /mnt base linux linux-firmware vim grub efibootmgr networkmanager
+	# pacstrap /mnt base linux linux-firmware vim grub efibootmgr networkmanager os-prober sudo
 
 3.0 Configure the system
 
@@ -55,7 +55,7 @@
 3.7 Set root password
 	# passwd
 	
-3.8  bootloader
+3.8 Set bootloader
 	# grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot --recheck --removable 		
 	# grub-mkconfig -o /boot/grub/grub.cfg
 
