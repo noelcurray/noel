@@ -27,7 +27,7 @@
 	# mount --mkdir /dev/another_disk_to_mount /mnt/hdd
 	
 2.0 Install essential package
-	# pacstrap /mnt base linux linux-firmware
+	# pacstrap /mnt base linux linux-firmware vim grub efibootmgr networkmanager
 
 3.0 Configure the system
 
@@ -44,7 +44,6 @@
 	# date (**NOTE: just to check) 
 
 3.4 localization
-	# pacman -S vim
 	# vim /etc/locale.gen (**NOTE: uncomment 'en_US.UTF-8')
 	# locale-gen
 	# echo "LANG=en_US.UTF-8" > /etc/locale.conf
@@ -56,13 +55,11 @@
 3.7 Set root password
 	# passwd
 	
-3.8 Install bootloader
-	# pacman -S grub efibootmgr 
+3.8  bootloader
 	# grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot --recheck --removable 		
 	# grub-mkconfig -o /boot/grub/grub.cfg
 
 4.0 Install network manager
-	# pacman -S networkmanager
 	# systemctl enable NetworkManager
 	
 5.0 Reboot
